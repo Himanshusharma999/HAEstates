@@ -1,0 +1,102 @@
+{% extends 'base.html' %}
+{% from "components/macros.html" import cta_button %}
+
+{% block css %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/home.css') }}">
+{% endblock %}
+
+
+{% block content %}
+    <div class="home">
+        <section class="home__hero">
+            <div class="hero__left">
+                <h1>
+                    The city where your dreams come true
+                </h1>
+                <p>
+                    Discover Chicago, a city where dreams flourish. From its iconic skyline to vibrant neighborhoods, 
+                    Chicago offers endless opportunities for personal and professional growth. Begin your journey in a city where aspirations come true.
+                </p>
+
+                {{ cta_button('btn--large') }}
+
+            </div>
+            <div class="hero__right">
+                <img src="{{ url_for('static', filename='images/Chicago_air.jpg') }}" alt="hero" class="hero__img">
+            </div>
+        </section>
+
+        <section class="home__info">
+            <h2 class="home__title">
+                Fall in love with Chicago
+            </h2>
+            <div>
+                <div class="info__text">
+                    <h3>Where design and architecture is a given</h3>
+                    <p>
+                        Chicago is a city that takes pride in its architectural marvels and innovative design. 
+                        Home to some of the most iconic buildings and structures in the world, 
+                        Chicago offers a unique blend of historical elegance and modern sophistication. 
+                        The city’s commitment to architectural excellence is evident in every corner, 
+                        from the towering skyscrapers to the meticulously preserved landmarks. For those with 
+                        an appreciation for design and aesthetics, Chicago provides an inspiring backdrop for a 
+                        life well-lived. Explore the architectural wonders of Chicago and find your perfect home 
+                        in a city where design and architecture are a given.
+                    </p>
+                </div>
+                <img src="{{ url_for('static', filename='images/Chicago_attractions.jpeg') }}" alt="produce">
+            </div>
+            <div>
+                <div class="info__text">
+                    <h3>Homes with space for living</h3>
+                    <p>
+                        Imagine a home where you can truly spread out and enjoy your surroundings. 
+                        Chicago’s luxury residences offer generous living spaces, both indoors and out, 
+                        designed to cater to your every need. Whether you dream of a sprawling estate with 
+                        lush gardens or a modern condo with expansive views, Chicago has a diverse range of 
+                        properties that provide ample space for living. Embrace the luxury of open spaces, 
+                        elegant interiors, and the comfort of a home designed with your lifestyle in mind. 
+                        Discover the perfect balance of space and style in Chicago’s premier homes.
+                    </p>
+                </div>
+                <img src="{{ url_for('static', filename='images/Chicago_luxuryhome.jpg') }}" alt="produce">
+            </div>
+            <div>
+                <div class="info__text">
+                    <h3>Jetset appartments with a view</h3>
+                    <p>
+                        Experience the pinnacle of urban living in Chicago’s premier apartments 
+                        that offer breathtaking views and unparalleled convenience. Located in the heart 
+                        of the city, these sophisticated residences provide the perfect vantage point to 
+                        take in the stunning skyline and vibrant cityscape. Whether you’re relaxing at home 
+                        or entertaining guests, the panoramic views from your apartment will never cease to amaze.
+                         Enjoy the best of both worlds with luxurious amenities, stylish interiors, and the 
+                         dynamic energy of downtown Chicago right at your doorstep. Elevate your lifestyle with a
+                          jetset apartment that offers a view like no other.
+                    </p>
+                </div>
+                <img src="{{ url_for('static', filename='images/Chicago_Canals.jpeg') }}" alt="produce">
+            </div>
+
+            <h2 class="home__title">
+                Your favorite realators 
+            </h2>
+            <div>
+                <div class="info__text">
+                    <h3>The best in the buisness</h3>
+                    <p>
+                        Meet the team of dedicated professionals who make your real estate dreams a reality. 
+                        Our experienced realtors are passionate about helping you find the perfect home in Chicago. 
+                        With their extensive knowledge of the local market and a commitment to providing exceptional 
+                        service, our realtors are your trusted partners in the home-buying journey. Whether you’re a 
+                        first-time buyer or looking to upgrade, our team is here to guide you every step of the way. 
+                        Discover why our clients consider us their favorite realtors and let us help you find your dream home in Chicago.
+                    </p>
+
+                    {{ cta_button('btn--large') }}
+                </div>
+                <img src="{{ url_for('static', filename='images/Chicago_realators.jpeg') }}" alt="produce">
+            </div>
+        </section>
+    </div>
+{% endblock %}
