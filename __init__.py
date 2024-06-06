@@ -24,9 +24,9 @@ login_manager = LoginManager(app)
 login_manager.login_view = 'login'
 login_manager.login_message_category = 'info'
 
-from GreenGroceries import filters
-from GreenGroceries.blueprints.Login.routes import Login
-from GreenGroceries.blueprints.Produce.routes import Produce
+from HAEstates import filters
+from HAEstates.blueprints.Login.routes import Login
+from HAEstates.blueprints.Produce.routes import Produce
 
 app.register_blueprint(Login)
 app.register_blueprint(Produce)

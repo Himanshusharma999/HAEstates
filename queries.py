@@ -1,5 +1,5 @@
-from GreenGroceries import db_cursor, conn
-from GreenGroceries.models import User, Farmer, Customer, Produce, Sell, ProduceOrder
+from HAEstates import db_cursor, conn
+from HAEstates.models import User, Farmer, Customer, Produce, Sell, ProduceOrder
 
 
 # INSERT QUERIES

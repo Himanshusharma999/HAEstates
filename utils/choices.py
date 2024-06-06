@@ -1,7 +1,7 @@
 import os
 import pandas as pd
 
-from GreenGroceries import app
+from HAEstates import app
 
 DATASET_PATH = os.path.join(app.root_path, 'dataset', 'fruitvegprices-2017_2022.csv')
 

@@ -1,4 +1,4 @@
-from GreenGroceries import app
+from HAEstates import app
 
 
 @app.template_filter('format_data')
