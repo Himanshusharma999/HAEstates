@@ -27,7 +27,7 @@ def produce():
 @Produce.route("/Search Properties", methods=['GET', 'POST'])
 def property():
     form = FilterPropertyForm()
-    title = 'Our properties!'
+    title = 'Find property!'
     produce = []
     if request.method == 'POST':
         produce = get_produce_by_filters(category=request.form.get('category'),
