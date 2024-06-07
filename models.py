@@ -82,3 +82,17 @@ class ProduceOrder(ModelMixin):
         self.customer_pk = produce_order_data.get('customer_pk')
         self.farmer_pk = produce_order_data.get('farmer_pk')
         self.produce_pk = produce_order_data.get('produce_pk')
+
+class Property(ModelMixin):
+    def __init__(self, property_data: Dict):
+        super(Property, self).__init__(property_data)
+        self.pk = property_data.get('pk')
+        self.text = property_data.get('text')
+        self.beds = property_data.get('beds')
+        self.baths = property_data.get('baths')
+        self.type = property_data.get('type')
+        self.garage = property_data.get('garage')
+        self.sqrf = property_data.get('sqrf')
+        self.listPrice = property_data.get('listPrice')
+        self.stories = property_data.get('stories')
+        self.year_built = property_data.get('year_built')

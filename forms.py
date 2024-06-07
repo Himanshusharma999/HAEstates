@@ -53,14 +53,17 @@ class UserSignupForm(FlaskForm):
             raise ValidationError(f'Provided passwords do not match.')
 
 
-class FilterProduceForm(FlaskForm):
+class FilterPropertyForm(FlaskForm):
     category = SelectField('Type',
                            choices=PropertyTypeChoices.choices())
-    item = SelectField('Beds',
-                       choices=sorted(ProperyBedsChoices.choices()))
-    variety = SelectField('Baths',
-                          choices=sorted(PropertyBathsChoices.choices()))
-    sold_by = StringField('Sold by')
+    item = IntegerField('Beds',
+                       validators=[NumberRange(min=0, max=100)])
+    variety = IntegerField('Baths',
+                          validators=[NumberRange(min=0, max=100)])
+    stories = IntegerField('Stories',
+                            validators=[NumberRange(min=0, max=100)])
+    sold_by = IntegerField('stories',
+                          validators=[NumberRange(min=0, max=100)])
     price = FloatField('Price (lower than or equal to)',
                        validators=[NumberRange(min=0, max=100000000000)])
 

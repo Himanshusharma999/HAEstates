@@ -1,5 +1,5 @@
 from HAEstates import db_cursor, conn
-from HAEstates.models import User, Farmer, Customer, Produce, Sell, ProduceOrder
+from HAEstates.models import User, Farmer, Customer, Produce, Sell, ProduceOrder, Property
 
 
 # INSERT QUERIES
@@ -44,6 +44,24 @@ def insert_produce(produce: Produce):
     ))
     conn.commit()
     return db_cursor.fetchone().get('pk') if db_cursor.rowcount > 0 else None
+
+def insert_property(property: Property):
+    sql = """
+    INSERT INTO Property(text, beds, baths, type, garage, sqrf, listPrice, stories, year_built)
+    VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s)
+    """
+    db_cursor.execute(sql, (
+        property.text,
+        property.beds,
+        property.baths,
+        property.type,
+        property.garage,
+        property.sqrf,
+        property.listPrice,
+        property.stories,
+        property.year_built
+    ))
+    conn.commit()
 
 
 def insert_sell(sell: Sell):
