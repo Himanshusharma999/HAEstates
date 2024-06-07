@@ -4,8 +4,8 @@ from wtforms import StringField, PasswordField, SubmitField, IntegerField, Selec
 from wtforms.validators import DataRequired, Length, ValidationError, NumberRange
 
 from HAEstates.queries import get_user_by_user_name, get_farmer_by_pk, get_customer_by_pk
-from HAEstates.utils.choices import ProduceItemChoices, ProduceCategoryChoices, UserTypeChoices, \
-    ProduceVarietyChoices, ProduceUnitChoices
+from HAEstates.utils.choices import PropertyTypeChoices, PropertyBathsChoices, UserTypeChoices, \
+    PropertyStoriesChoices, ProperyBedsChoices
 
 
 class UserLoginForm(FlaskForm):
@@ -54,32 +54,32 @@ class UserSignupForm(FlaskForm):
 
 
 class FilterProduceForm(FlaskForm):
-    category = SelectField('Category',
-                           choices=ProduceCategoryChoices.choices())
-    item = SelectField('Item',
-                       choices=ProduceItemChoices.choices())
-    variety = SelectField('Variety',
-                          choices=ProduceVarietyChoices.choices())
+    category = SelectField('Type',
+                           choices=PropertyTypeChoices.choices())
+    item = SelectField('Beds',
+                       choices=sorted(ProperyBedsChoices.choices()))
+    variety = SelectField('Baths',
+                          choices=sorted(PropertyBathsChoices.choices()))
     sold_by = StringField('Sold by')
     price = FloatField('Price (lower than or equal to)',
-                       validators=[NumberRange(min=0, max=100)])
+                       validators=[NumberRange(min=0, max=100000000000)])
 
-    submit = SubmitField('Filter')
+    submit = SubmitField('Search homes')
 
 
 class AddProduceForm(FlaskForm):
     category = SelectField('Category',
                            validators=[DataRequired()],
-                           choices=ProduceCategoryChoices.choices())
+                           choices=PropertyTypeChoices.choices())
     item = SelectField('Item (Subcategory)',
                        validators=[DataRequired()],
-                       choices=ProduceItemChoices.choices())
+                       choices=ProperyBedsChoices.choices())
     variety = SelectField('Variety',
                           validators=[DataRequired()],
-                          choices=ProduceVarietyChoices.choices())
+                          choices=PropertyBathsChoices.choices())
     unit = SelectField('Unit',
                        validators=[DataRequired()],
-                       choices=ProduceUnitChoices.choices())
+                       choices=PropertyStoriesChoices.choices())
     price = IntegerField('Price',
                          validators=[DataRequired(), NumberRange(min=0, max=100)])
     farmer_pk = IntegerField('Farmer',

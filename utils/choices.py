@@ -3,7 +3,7 @@ import pandas as pd
 
 from HAEstates import app
 
-DATASET_PATH = os.path.join(app.root_path, 'dataset', 'fruitvegprices-2017_2022.csv')
+DATASET_PATH = os.path.join(app.root_path, 'dataset', 'real_estate_data_chicago.csv')
 
 
 def get_label_name(string):
@@ -27,13 +27,13 @@ class ModelChoices:
 
 df = pd.read_csv(DATASET_PATH, sep=',')
 
-ProduceCategoryChoices = ModelChoices(df.category.unique())
-ProduceItemChoices = ModelChoices(df.item.unique())
-ProduceVarietyChoices = ModelChoices(df.variety.unique())
-ProduceUnitChoices = ModelChoices(df.unit.unique())
+PropertyTypeChoices = ModelChoices([str(choice) for choice in df.type.unique()])
+ProperyBedsChoices = ModelChoices([str(choice) for choice in df.beds.unique()])
+PropertyBathsChoices = ModelChoices([str(choice) for choice in df.baths.unique()])
+PropertyStoriesChoices = ModelChoices([str(choice) for choice in df.stories.unique()])
 
 UserTypeChoices = ModelChoices(['Farmer', 'Customer'])
 
 if __name__ == '__main__':
-    print(df.item.unique())
-    print(ProduceItemChoices.choices())
+    print(df.type.unique())
+    print(PropertyTypeChoices.choices())
