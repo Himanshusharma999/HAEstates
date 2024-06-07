@@ -1,17 +1,18 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Property Search</title>
-</head>
-<body>
-    <h1>Property Search</h1>
-    
-    <form action="/search" method="GET">
-        <label for="keyword">Search Properties:</label>
-        <input type="text" id="keyword" name="keyword" placeholder="Enter Keyword">
+{% extends 'base.html' %}
+{% from 'components/macros.html' import select_field, filter_produce_form, produce_card %}
 
-        <button type="submit">Search</button>
-    </form>
-</body>
-</html>
+{% block css %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/produce.css') }}">
+{% endblock %}
 
+{% block title %}
+    {{ title }}
+{% endblock %}
+
+
+{% block content %}
+    <h2>Search for your next home</h2>  
+    <form action="{{ url_for('Produce.produce') }}" method="GET">
+        <input type="text" name="search" placeholder="Search for properties">
+        <button type="submit">Search</button>  
+{% endblock %}
