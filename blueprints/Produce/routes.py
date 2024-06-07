@@ -10,7 +10,7 @@ from HAEstates.queries import insert_produce, get_produce_by_pk, Sell, \
 Produce = Blueprint('Produce', __name__)
 
 
-@Produce.route("/produce", methods=['GET', 'POST'])
+@Produce.route("/properties", methods=['GET', 'POST'])
 def produce():
     form = FilterProduceForm()
     title = 'Our produce!'
@@ -22,7 +22,7 @@ def produce():
                                          farmer_name=request.form.get('sold_by'),
                                          price=request.form.get('price'))
         title = f'Our {request.form.get("category")}!'
-    return render_template('pages/produce.html', produce=produce, form=form, title=title)
+    return render_template('pages/properties.html', produce=produce, form=form, title=title)
 
 
 @Produce.route("/add-produce", methods=['GET', 'POST'])
