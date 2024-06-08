@@ -25,6 +25,8 @@ login_manager.login_view = 'login'
 login_manager.login_message_category = 'info'
 
 from HAEstates import filters
+from HAEstates.blueprints.Login.routes import Login
 from HAEstates.blueprints.Produce.routes import Produce
 
+app.register_blueprint(Login)
 app.register_blueprint(Produce)
