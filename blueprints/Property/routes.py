@@ -1,14 +1,10 @@
 from flask import render_template, request, Blueprint
 from flask_login import login_required, current_user
 
-from HAEstates.forms import FilterPropertyForm, AddProduceForm, BuyProduceForm, RestockProduceForm
-from HAEstates.models import Produce as ProduceModel, ProduceOrder
-from HAEstates.queries import insert_produce, get_produce_by_pk, Sell, \
-    insert_sell, get_all_produce_by_farmer, get_produce_by_filters, insert_produce_order, update_sell, \
-    get_orders_by_customer_pk
+from HAEstates.forms import FilterPropertyForm
+from HAEstates.queries import get_produce_by_filters
 
 Property = Blueprint('Property', __name__)
-
 
 @Property.route("/properties", methods=['GET', 'POST'])
 def produce():

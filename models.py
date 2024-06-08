@@ -27,25 +27,6 @@ class ModelMixin(dict):
     pass
 
 
-class User(ModelUserMixin):
-    def __init__(self, user_data: Dict):
-        super(User, self).__init__(user_data)
-        self.pk = user_data.get('pk')
-        self.full_name = user_data.get('full_name')
-        self.user_name = user_data.get('user_name')
-        self.password = user_data.get('password')
-
-
-class Customer(User):
-    def __init__(self, user_data: Dict):
-        super().__init__(user_data)
-
-
-class Farmer(User):
-    def __init__(self, user_data: Dict):
-        super().__init__(user_data)
-
-
 if __name__ == '__main__':
     user_data = dict(full_name='a', user_name='b', password='c')
     user = Farmer(user_data)
@@ -66,22 +47,6 @@ class Produce(ModelMixin):
         self.farmer_name = produce_data.get('farmer_name')
         self.farmer_pk = produce_data.get('farmer_pk')
 
-
-class Sell(ModelMixin):
-    def __init__(self, sell_data: Dict):
-        super(Sell, self).__init__(sell_data)
-        self.available = sell_data.get('available')
-        self.farmer_pk = sell_data.get('farmer_pk')
-        self.produce_pk = sell_data.get('produce_pk')
-
-
-class ProduceOrder(ModelMixin):
-    def __init__(self, produce_order_data: Dict):
-        super(ProduceOrder, self).__init__(produce_order_data)
-        self.pk = produce_order_data.get('pk')
-        self.customer_pk = produce_order_data.get('customer_pk')
-        self.farmer_pk = produce_order_data.get('farmer_pk')
-        self.produce_pk = produce_order_data.get('produce_pk')
 
 class Property(ModelMixin):
     def __init__(self, property_data: Dict):
