@@ -12,7 +12,7 @@
 
 {% block content %}
     <h2>Search for your next home</h2>  
-    <form action="{{ url_for('Produce.produce') }}" method="GET">
+    <form action="{{ url_for('Property.produce') }}" method="GET">
         <input type="text" name="search" placeholder="Search for properties">
         <button type="submit">Search</button>  
 {% endblock %}
