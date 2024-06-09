@@ -24,9 +24,12 @@ def property():
 
 @Property.route("/Search", methods=['GET'])
 def search():
-    query = request.args.get('query', '')
+    query = request.args.get('query','')
     results = search_dataset(query)
-    return render_template('pages/results.html', query=query, results=results)
+    if query != '':
+        return render_template('pages/results.html', query=query, results=results)
+    else:
+        return render_template('pages/search.html', query=query)
 
 def search_dataset(query):
     pattern =  re.compile(query, re.IGNORECASE)
