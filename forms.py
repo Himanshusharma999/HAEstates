@@ -7,11 +7,11 @@ from wtforms.validators import DataRequired, Length, ValidationError, NumberRang
 from HAEstates.utils.choices import PropertyTypeChoices
 
 class FilterPropertyForm(FlaskForm):
-    category = SelectField('Type',
+    p_type = SelectField('Type',
                            choices=PropertyTypeChoices.choices())
-    item = IntegerField('Beds',
+    beds = IntegerField('Beds',
                        validators=[NumberRange(min=0, max=100)])
-    variety = IntegerField('Baths',
+    baths = IntegerField('Baths',
                           validators=[NumberRange(min=0, max=100)])
     stories = IntegerField('Stories',
                             validators=[NumberRange(min=0, max=100)])
@@ -21,4 +21,3 @@ class FilterPropertyForm(FlaskForm):
                        validators=[NumberRange(min=0, max=100000000000)])
 
     submit = SubmitField('Search homes')
-

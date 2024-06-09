@@ -3,7 +3,7 @@ from flask_login import login_required, current_user
 import re 
 
 from HAEstates.forms import FilterPropertyForm
-from HAEstates.queries import get_produce_by_filters
+from HAEstates.queries import get_property_by_filters
 from HAEstates.utils.search_data import df
 
 Property = Blueprint('Property', __name__)
@@ -14,12 +14,8 @@ def property():
     title = 'Our properties!'
     property = []
     if request.method == 'POST':
-        property = get_produce_by_filters(category=request.form.get('category'),
-                                         item=request.form.get('item'),
-                                         variety=request.form.get('variety'),
-                                         farmer_name=request.form.get('sold_by'),
-                                         price=request.form.get('price'))
-        title = f'Our {request.form.get("category")}!'
+        property = get_property_by_filters(type=form.p_type.data, beds=form.beds.data, baths=form.baths.data, stories=form.stories.data, sold_by=form.sold_by.data, price=form.price.data)
+        title = f'Our {request.form.get("type")}!'
     return render_template('pages/properties.html', property=property, form=form, title=title)
 
 @Property.route("/Search", methods=['GET'])
