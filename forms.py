@@ -4,8 +4,7 @@ from wtforms import StringField, PasswordField, SubmitField, IntegerField, Selec
 from wtforms.validators import DataRequired, Length, ValidationError, NumberRange
 
 #from HAEstates.queries import get_user_by_user_name, get_farmer_by_pk, get_customer_by_pk
-from HAEstates.utils.choices import PropertyTypeChoices, PropertyBathsChoices, UserTypeChoices, \
-    PropertyStoriesChoices, ProperyBedsChoices
+from HAEstates.utils.choices import PropertyTypeChoices
 
 class FilterPropertyForm(FlaskForm):
     category = SelectField('Type',

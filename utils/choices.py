@@ -32,8 +32,6 @@ ProperyBedsChoices = ModelChoices([str(choice) for choice in df.beds.unique()])
 PropertyBathsChoices = ModelChoices([str(choice) for choice in df.baths.unique()])
 PropertyStoriesChoices = ModelChoices([str(choice) for choice in df.stories.unique()])
 
-UserTypeChoices = ModelChoices(['Farmer', 'Customer'])
-
 if __name__ == '__main__':
     print(df.type.unique())
     print(PropertyTypeChoices.choices())
