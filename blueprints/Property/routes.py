@@ -32,7 +32,7 @@ def search():
         return render_template('pages/search.html', query=query)
 
 def search_dataset(query):
-    pattern =  re.compile(query, re.IGNORECASE)
+    pattern = re.compile(query, re.IGNORECASE)
 
     results = df[df['text'].str.contains(pattern)]
 
