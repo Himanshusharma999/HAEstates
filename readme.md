@@ -1,4 +1,6 @@
-# HAEstates
+# HAEstates tsk213, wxj782
+
+
 
 ## Initialization ✔
 
@@ -59,32 +61,70 @@ for the app.
     - __/signup__: User signup (creation) page
     - __/logout__: Logs user out and sends back to login page
 
-- __Produce__:
-    - __/produce__: Search page for all produce in the database
-    - __/add-produce__: Page where farmer users can add their produce (customers trying to submit will get an error)
-    - __/your-produce__: Page where farmers can view and manage their produce
-    - __/produce/restock/<pk>__: Page where farmers can restock a certain product
-    - __/produce/buy/<pk>__: Page where customers get redirected to in order to buy a certain product
-    - __/produce/your-orders__: Page where customers can view their orders
+- __Property__:
+    - __/Search__: Search page for all properties in the database
+    - __/Browse__: Page for filtering the properties in the database
+    
+## Disclaimer 
+- This project has used the example project "GreenGroceries" as a starting point. 
 
-## Known backend issues / Intended features ⁉
+## Some known backend issues / Intended features ⁉
 
-- There is no good differentiation between customers and farmers in the _current_user_ global variable
-- This results in some security issues when accessing links ment for farmers as customers and vice-versa (should be
-  checked by the validation methods of the forms, but in the perfect scenario specific links should only be accessible
-  by specific users)
-- Given the correct url, farmers may be able to update data on other farmers produce (not tested, but seems logical)
+- The browse feature was intended to be able to filter through the dataset, and return the now filtered dataset, but we have not been able to get to work. 
 
-All of these issues can be solved with a bit of extra work on the design of the app (specifically how the _current_user_
-is represented by the __User__ interface within __models.py__ such that it also knows whether the logged-in user is a
-farmer or a customer)
+- The solution should be very simular to how we implemented the search feature, and with a bit more time, we would have been able to solve this. 
+
+
 
 ## Known frontend issues ☹
 
-- The produce page may be a bit confusing as the filters seem to be preselected. This is not the case as the first load
-  of the produce page simply displays the filtering form which has multiple select fields with options coming from the _
-  choices_ defined above, no empty option was added in this case
-- The app is not the most responsive on mobile devices in most cases (navbar is the issue)
-- Missing confirmation messages on successful form submissions (for example when adding produce) everything works but
-  nothing happens when it does work, so it maybe is a bit confusing.1
-- Missing favicon.ico console error (ignored)
+- The Browse feature lets the user interact with the filters but it does not do anything since the backend is not complete. 
+
+- The search feature can be used as intended, allthough the resulting list of properties is not very user friendly, and could be made more easy to read and navigate through. 
+3.0.7 g
+We select the manufactures in a table made by combining Product and printer,
+that suffice that color = ’true’ and that the price is the lowest of the table.
+3.0.8 h
+We select the model number and price in a combined set of computers (using
+union all) of the computers(laptops and pc’s) that have a speed equal to the
+highest speed in the set.
+3.0.9 i
+We select the manufacturer and the screen size calculated as an average and
+labelled as average screen size. To retrieve the data we join the two datasets
+product and laptop, by their common attribute model. We ”group” the averages
+with the ”maker”
+3.0.10 j
+we select the manufacturers from product that have a model count of at least
+three.
+3.0.11 k
+we select the manufacturer and the price as max price from the combined set
+of product and pc, that is combined with the common attribute model.
+3.0.12 l
+we we select the manufacturer and the hard disk size as an avg hd size. we
+combine the sets product and pc with the common attribute model, and only
+include data points where the type is ’printer’
+4 Exercise 4
+4.1 a) Using two INSERT statements, store in the database
+the fact that PC model 1100 is made by manufacturer
+C, has speed 3.2, RAM 1024, hard disk 180, and sells
+for $2499.
+The following queries uses insert statement to insert the specified PC model:
+insert into PC values(1011, 3.2, 1024, 180, 2499);
+insert into Product values(’C’,1011,’PC’);
+7
+4.2 b) Delete all PCs with less than 100 gigabytes of hard
+disk.
+We delete from the table PC where the harddisk is less than 100:
+delete from PC P where P.hd ¡ 100;
+4.3 c) Delete all laptops made by a manufacturer that
+does not make printers.
+4.4 d
+changes the value of the attribute maker to ’A’ where it was ’B’ prior.
+4.5 e
+doubles the ram and add 60 to the hard drive.
+4.6 f
+add the desired screen size and deducts the price by 100 for manufactures labeled
+’B’
+4.7 g
+deletes all products
+8
